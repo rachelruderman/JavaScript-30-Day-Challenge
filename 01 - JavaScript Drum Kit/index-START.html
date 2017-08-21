@@ -63,11 +63,14 @@
   window.addEventListener('keydown', function(e){
     //we're gonna select an audio element
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
     if(!audio) return; //stop the function from running
-    audio.currentTime = 0 //this rewinds to the start
+    audio.currentTime = 0 //this rewinds to the start so that if you call play() on an audio that's already playing, it will begin again at 0
     audio.play()
-    //if you call play() on an audio that's already playing, it won't play again
+    //vanilla JS to add class; we also have access to .remove and .toggle
+    key.classList.add('playing')
   })
+  const keys = document.querySelectorAll('.key')
 </script>
 
 
