@@ -70,7 +70,14 @@
     //vanilla JS to add class; we also have access to .remove and .toggle
     key.classList.add('playing')
   })
+
+  function removeTransition(e){
+    console.log(e)
+  }
+
   const keys = document.querySelectorAll('.key')
+  //we can't just do keys.addEventListener('transitionend') because when you have an array of elements, you can't just listen to them. You have to loop through them and attach a listener to each one
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition))
 </script>
 
 
