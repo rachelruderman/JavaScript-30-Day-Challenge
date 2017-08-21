@@ -72,7 +72,11 @@
   })
 
   function removeTransition(e){
-    console.log(e)
+    if(e.propertyName !== 'transform') return //skip it if it's not a transform
+    //once the transform is over, return
+    //we console log 'this' to see what it's referring to. In this case it's the div with the key
+    // console.log('this: ', this)
+    this.classList.remove('playing')
   }
 
   const keys = document.querySelectorAll('.key')
