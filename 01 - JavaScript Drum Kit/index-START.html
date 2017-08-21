@@ -58,7 +58,11 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+//we need to listen for the key event. To do so, you put the element you're listening on (could be the window, an input, a div, etc) and add the event listener with the arguments of the event you're listening to and the callback.
+//We're going to listen for the keydown event, and when that happens we're going to run this function
+  window.addEventListener('keydown', function(e){
+    console.log('event: ', e)
+  })
 </script>
 
 
