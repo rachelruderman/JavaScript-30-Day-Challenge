@@ -68,13 +68,24 @@
       /*so it will be vertical at 12 o'clock instead of  to start*/
       transition: all 0.05s;
       /*now when it rotates it transitions*/
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, );
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
   </style>
 
   <script>
 
+  const secondHand = document.querySelector('.second-hand')
+
+  function setDate(){
+    const now = new Date()
+    //gives us the seconds of the current minute
+    const seconds = now.getSeconds()
+    const secondsDegrees = ((seconds / 60) * 360)
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+  }
+
+  setInterval(setDate, 1000)
 
   </script>
 </body>
