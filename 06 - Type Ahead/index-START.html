@@ -26,6 +26,15 @@ fetch(endpoint)
   //we need to spread into the array, because otherwise the data will be added as one giant element in the array
   .then(data => cities.push(...data))
 
+function findMatches(wordToMatch, cities){
+  return cities.filter(place => {
+    //here we need to figure out if the city or state matches what was searched
+    //flags: g refers to global, meaning it looks through the entire string for the variable, and i refers to insensitive (not case sensitive)
+    const regex = new RegExp(wordToMatch, 'gi')
+    return place.city.match(regex) || place.state.match(regex)
+  })
+}
+
 </script>
   </body>
 </html>
