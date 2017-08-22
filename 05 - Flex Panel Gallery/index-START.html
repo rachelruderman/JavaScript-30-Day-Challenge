@@ -126,7 +126,18 @@
       this.classList.toggle('open')
     }
 
+    function toggleActive(e){
+      //this shows you all the properties being affected by the event
+      console.log(e.propertyName)
+      //some browsers have it as flex, others as flex grow. So we'll say, if the property name includes the word flex, do this.
+      if(e.propertyName.includes('flex')){
+        this.classList.toggle('open-active')
+      }
+    }
+
     panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+    //when this finishes, the second one will fire
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
     //so we're gonna take the list of panels and loop over each one, adding a click event listener and then run the toggle function when it is run
   </script>
 
