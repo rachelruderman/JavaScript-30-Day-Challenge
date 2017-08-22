@@ -36,7 +36,7 @@ function findMatches(wordToMatch, cities){
 }
 
 function numberWithCommas(x){
-  return x.toString().replace(/\B(?=(d{3})+(?!\d))/g, ',')
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function displayMatches(){
@@ -59,7 +59,7 @@ function displayMatches(){
 }
 
 const searchInput = document.querySelector('.search')
-const searchInput = document.querySelector('.suggestions')
+const suggestions = document.querySelector('.suggestions')
 
 //change event only fires when you focus off that input. If you want it to also fire on keyup, run that too
 searchInput.addEventListener('change', displayMatches)
