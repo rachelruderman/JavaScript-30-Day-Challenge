@@ -31,6 +31,7 @@
     img {
       padding: var(--spacing);
       background: var(--base);
+      filter: blur(var(--blur));
     }
 
     .hl {
@@ -64,8 +65,10 @@
     const inputs = document.querySelectorAll('.controls input')
 
     function handleUpdate(){
-      //dataset is an object that contains all of the data attributes from that specific element 
-      const suffix = this.dataset
+      //dataset is an object that contains all of the data attributes from that specific element
+      // add || to make sure undefined not appended on end if there is no suffix
+      const suffix = this.dataset.sizing || ''
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
     }
     //we want to listen for the change event. when that is called, we call handleUpdate
     inputs.forEach(input => input.addEventListener('change', handleUpdate))
