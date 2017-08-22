@@ -59,6 +59,14 @@
   </style>
 
   <script>
+  //this is a nodelist. sometimes you'll see people converting their node list to an array to get those built-in array properties. In our case, we'll use the forEach property of nodeList so we don't need to convert it
+    const inputs = document.querySelectorAll('.controls input')
+
+    function handleUpdate(){
+      console.log(this.value)
+    }
+    //we want to listen for the change event. when that is called, we call handleUpdate
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
   </script>
 
 </body>
