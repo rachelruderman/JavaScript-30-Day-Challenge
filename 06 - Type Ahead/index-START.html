@@ -15,7 +15,16 @@
     </ul>
   </form>
 <script>
+//json object
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+//first we need an empty array to put our cities into, then we need to go out and fetch the data
+const cities = []
+//fetch is new, built into the browser to fetch data. it doesn't return the data; it returns a promise. To work with a promise, you call .then after it
+//the blob has to be converted from the raw data that it is in to JSON
+fetch(endpoint)
+  .then(blobOfData => blobOfData.json()) //this returns another promise, with the raw data
+  //we need to spread into the array, because otherwise the data will be added as one giant element in the array
+  .then(data => cities.push(...data))
 
 </script>
   </body>
