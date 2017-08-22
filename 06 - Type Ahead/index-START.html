@@ -35,6 +35,28 @@ function findMatches(wordToMatch, cities){
   })
 }
 
+function displayMatches(){
+  const matchArray = findMatches(this.value, cities)
+  const html = matchArray.map(place => {
+    return `
+      <li>
+        <span class='name'>${place.city}, ${place.state}</span>
+        <span class='population'>${place.population}</span>
+      </li>
+    `
+  })
+  suggestions.innerHTML = html
+}
+
+const searchInput = document.querySelector('.search')
+const searchInput = document.querySelector('.suggestions')
+
+//change event only fires when you focus off that input. If you want it to also fire on keyup, run that too
+searchInput.addEventListener('change', displayMatches)
+searchInput.addEventListener('keyup', displayMatches)
+
+//get your data first, then worry about hooking it up to event listeners
+
 </script>
   </body>
 </html>
