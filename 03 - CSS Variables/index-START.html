@@ -18,9 +18,23 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="C:\Users\Rachel\Desktop\Pictures\sunset.jpg">
 
   <style>
+    :root {
+      --base: #ffc600;
+      --spacing: 50px;
+      --blur: 10px;
+    }
+/*in CSS vars are defined with --. in SASS it's with a dollar sign*/
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+    }
+
+    .hl {
+      color: var(--base);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
