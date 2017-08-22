@@ -91,6 +91,16 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const transportation = data.reduce((accumulation, item) => {
+      if(!accumulation[item]){
+        accumulation[item] = 0
+      }
+      accumulation[item]++
+      return accumulation
+    }, {})
+
+    console.log(transportation)
+
   </script>
 </body>
 </html>
