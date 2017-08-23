@@ -9,6 +9,7 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
+//in the dev tools, elements, right click, break on, attribute modifications will pop in a debugger whenever the attribute is modified. good for when you know JS is doing something, but dont know what/where
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
     function makeGreen() {
@@ -18,25 +19,45 @@
     }
 
     // Regular
-
+    console.log('hello')
     // Interpolated
-
+    //this will interpolate whatever the second argument is, into the first one. People don't use it much anymore thanks to ES6 backticks
+    console.log('hello I am a %s string!', 'poopemoji')
     // Styled
-
+    console.log('%c I am some great text', 'font-size: 50px; background: red;')
     // warning!
-
+    console.warn('OH NOOO')
+    //will display a warning, with the stack trace
     // Error :|
-
+    console.error('Shit!')
+    //will display an error, with the stack trace
     // Info
+    console.info('Crocodiles eat 3-4 people per year') //gives you the info icon
 
     // Testing
+    //console.assert only fires if something is wrong
+    const p = document.querySelector('p')
+    console.assert(p.classList.contains('ouch'), 'class name does not contain ouch')
+    console.assert(1 === 1, 'That is wrong')
+    console.assert(1 === 2, 'That is wrong')
 
     // clearing
+    console.clear()
+    // clears your console, can use it to mess with a developer by putting it at the end of their file
 
     // Viewing DOM Elements
+    console.log(p)
+    //shows you the element itself
+    console.dir(p)
+    //allows you to open up the element and see all the properties and methods that live on that element
 
     // Grouping together
-
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`)
+        console.log(`This is ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age} years old`)
+      console.groupEnd(`${dog.name}`)
+    })
     // counting
 
     // timing
