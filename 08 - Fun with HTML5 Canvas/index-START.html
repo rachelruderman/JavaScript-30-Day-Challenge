@@ -7,6 +7,13 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+//really all we have is this canvas element that we need to draw on
+  const canvas = document.querySelector('#draw')
+//we also need context; this is what we draw on. it can either be 2d or 3d (stuff like video games)
+  const ctx = canvas.getContext('2d')
+  //set canvas width/height to window width/height
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
 </script>
 
 <style>
