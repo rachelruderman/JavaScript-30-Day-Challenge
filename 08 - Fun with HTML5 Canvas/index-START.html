@@ -33,6 +33,7 @@
     ctx.lineTo(e.offsetX, e.offsetY)
     //we wont see anything on the page until we call stroke
     ctx.stroke()
+    [lastX, lastY] = [e.offsetX, e.offsetY]
   }
 
   canvas.addEventListener('mousemove', draw)
