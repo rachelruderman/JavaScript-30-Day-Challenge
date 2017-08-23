@@ -20,6 +20,7 @@
   //should the end of the line be squared off
   ctx.lineCap = 'round'
   ctx.lineWidth = 100
+  ctx.globalCompositeOperation = 'multiply'
 
   let isDrawing = false
   let lastX = 0
@@ -53,7 +54,7 @@
       ctx.lineWidth--
     }
     //with hsl, if you go over 360, it just keeps going around and around. we could also reset it
-    if(huge >= 360){
+    if(hue >= 360){
       hue = 0
     }
   }
