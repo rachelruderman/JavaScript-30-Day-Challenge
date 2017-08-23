@@ -47,6 +47,17 @@
     console.log({comment})
 
     // Array.prototype.findIndex()
+    // in order to delete something in an array, you need to know where in the array it is
+    const index = comments.findIndex(comment => comment.id === 823423)
+    console.log({index})
+    comments.splice(index, 1)
+    console.table(comments)
+    //very popular in redux world: create new array of updated comments
+    const newComments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+    ]
+    console.table(newComments)
     // Find the comment with this ID
     // delete the comment with the ID of 823423
 
