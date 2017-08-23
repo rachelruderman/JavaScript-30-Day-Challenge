@@ -19,7 +19,8 @@
   ctx.lineJoin = 'round'
   //should the end of the line be squared off
   ctx.lineCap = 'round'
-
+  ctx.lineWidth = 100
+  
   let isDrawing = false
   let lastX = 0
   let lastY = 0
@@ -33,11 +34,18 @@
     ctx.lineTo(e.offsetX, e.offsetY)
     //we wont see anything on the page until we call stroke
     ctx.stroke()
-    [lastX, lastY] = [e.offsetX, e.offsetY]
+    // [lastX, lastY] = [e.offsetX, e.offsetY]
+    lastX = e.offsetX
+    lastY = e.offsetY
   }
 
-  canvas.addEventListener('mousemove', draw)
-  canvas.addEventListener('mousedown', () => isDrawing = true)
+  canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true
+      //this will put us where we want to be rather than starting at 0, 0
+      lastX = e.offsetX
+      lastY = e.offsetY
+  })
+  canvas.addEventListener('mousemove', (draw))
   canvas.addEventListener('mouseup', () => isDrawing = false)
   canvas.addEventListener('mouseout', () => isDrawing = false)
 </script>
