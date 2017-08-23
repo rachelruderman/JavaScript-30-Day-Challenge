@@ -14,6 +14,25 @@
   //set canvas width/height to window width/height
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
+  ctx.strokeStyle = '#BADASS'
+  //when a line joins another line, should it be squared off
+  ctx.lineJoin = 'round'
+  //should the end of the line be squared off
+  ctx.lineCap = 'round'
+
+  let isDrawing = false
+  let lastX = 0
+  let lastY = 0
+
+  function draw(e){
+    if(!isDrawing) return //this will stop the function from running when they are not moused down
+    console.log(e)
+  }
+
+  canvas.addEventListener('mousemove', draw)
+  canvas.addEventListener('mousedown', () => isDrawing = true)
+  canvas.addEventListener('mouseup', () => isDrawing = false)
+  canvas.addEventListener('mouseout', () => isDrawing = false)
 </script>
 
 <style>
