@@ -25,6 +25,7 @@
   let lastX = 0
   let lastY = 0
   let hue = 0
+  let direction = true
 
   function draw(e){
     if(!isDrawing) return //this will stop the function from running when they are not moused down
@@ -32,6 +33,7 @@
     console.log(e)
     //100% saturation, 50% lightness
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+    //using the hue variable for both color and line width
     ctx.beginPath()
     ctx.moveTo(lastX, lastY)
     ctx.lineTo(e.offsetX, e.offsetY)
@@ -41,6 +43,19 @@
     lastX = e.offsetX
     lastY = e.offsetY
     hue++
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+      direction = !direction
+      //flip the direction
+    }
+    if(direction){
+      ctx.lineWidth++
+    }else{
+      ctx.lineWidth--
+    }
+    //with hsl, if you go over 360, it just keeps going around and around. we could also reset it
+    if(huge >= 360){
+      hue = 0
+    }
   }
 
   canvas.addEventListener('mousedown', (e) => {
