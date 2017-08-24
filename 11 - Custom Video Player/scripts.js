@@ -28,9 +28,25 @@ function updateButton(){
   //why can we use 'this'? because it's bound to the video
 }
 
+function skip(){
+  console.log(this.dataset.skip)
+  //data-skip attribute in html can be neg or positive number, and on absolutely anything
+  video.currentTime += parseFloat(this.dataset.skip)
+  //parseFloat converts the string into a true number
+}
+
+function handleRangeUpdate(){
+  video[this.name] = this.value
+  console.log(this.name)
+  console.log(this.value)
+}
+
 //Hook Up Event Listeners//
 video.addEventListener('click', togglePlay)
 //every time it's clicked, it will trigger a play or pause event, which will trigger updateButton
 video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
 toggle.addEventListener('click', togglePlay)
+skipButtons.forEach(button => button.addEventListener('click', skip))
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate))
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate))
