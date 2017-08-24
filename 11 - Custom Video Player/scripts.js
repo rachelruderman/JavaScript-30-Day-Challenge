@@ -21,6 +21,16 @@ function togglePlay(){
 // }
 }
 
+function updateButton(){
+  console.log('Update the button')
+  const icon = this.pause ? '►' : '❚ ❚'
+  toggle.textContent = icon;
+  //why can we use 'this'? because it's bound to the video
+}
+
 //Hook Up Event Listeners//
 video.addEventListener('click', togglePlay)
+//every time it's clicked, it will trigger a play or pause event, which will trigger updateButton
+video.addEventListener('play', updateButton)
+video.addEventListener('pause', updateButton)
 toggle.addEventListener('click', togglePlay)
