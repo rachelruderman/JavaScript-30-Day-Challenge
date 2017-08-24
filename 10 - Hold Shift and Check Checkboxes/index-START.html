@@ -101,6 +101,15 @@
 <script>
 //first thing: select every one of the checkboxes because we need to listen for when they're being selected
 const checkboxes = document.querySelectorAll(".inbox input[type='checkbox']")
+//now we need to listen for when one gets changed. So we'll take the checkboxes, loop over them, and add an event listener to each one
+//Click event fires even if you use your keyboard
+
+function handleCheck(e){
+  console.log(e)
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck))
+
 </script>
 </body>
 </html>
