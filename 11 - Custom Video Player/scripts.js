@@ -9,7 +9,7 @@
 
 //Build Our Functions//
 function togglePlay(){
-  const method = video.paused ? 'play' : 'paused'
+  const method = video.paused ? 'play' : 'pause'
   //because the method name is in a string here, we can access the method name and call it
   video[method]()
   //call it
@@ -32,5 +32,5 @@ function updateButton(){
 video.addEventListener('click', togglePlay)
 //every time it's clicked, it will trigger a play or pause event, which will trigger updateButton
 video.addEventListener('play', updateButton)
-video.addEventListener('paused', updateButton)
+video.addEventListener('pause', updateButton)
 toggle.addEventListener('click', togglePlay)
