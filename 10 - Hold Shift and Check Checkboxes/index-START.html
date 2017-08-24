@@ -106,11 +106,19 @@ const checkboxes = document.querySelectorAll(".inbox input[type='checkbox']")
 
 let lastChecked;
 
+//every single time handleCheck is called, we're going to loop through the list and find the first one that's checked, then continue checking until we reach the last one that's checked
+
 function handleCheck(e){
   //check if they have the shift key down
   //AND check that they are checking (not unchecking) it
-  if(e.shiftKey){
-
+  let inBetween = false
+  if(e.shiftKey && this.checked){
+    //loop over every checkbox
+    checkboxes.forEach(checkbox => {
+      if(checkbox === this || checkbox === lastChecked){
+        inBetween = !inBetween
+      }
+    })
   }
 
   lastChecked = this
