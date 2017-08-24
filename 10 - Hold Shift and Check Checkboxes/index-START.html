@@ -115,8 +115,12 @@ function handleCheck(e){
   if(e.shiftKey && this.checked){
     //loop over every checkbox
     checkboxes.forEach(checkbox => {
-      if(checkbox === this || checkbox === lastChecked){
+      if(checkbox === this || checkbox === lastChecked
         inBetween = !inBetween
+        //we set a flag variable called inBetween that is set to false. Once we hit the fit checkbox, it's set to true, and we do that with every single one until the last one, at which point it's set to false. It works both ways from bottom to top because we set it to its opposite
+      }
+      if(inBetween){
+        checkbox.checked = true
       }
     })
   }
