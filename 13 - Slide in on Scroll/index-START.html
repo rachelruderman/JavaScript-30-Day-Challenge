@@ -68,7 +68,11 @@
         const imageBottom = sliderImage.offsetTop + sliderImage.height
         const isHalfShown = slideInAt > sliderImage.offsetTop
         const isNotScrolledPast = window.scrollY < imageBottom
-         
+        if(isHalfShown && isNotScrolledPast){
+          sliderImage.classList.add('active')
+        } else {
+          sliderImage.classList.remove('active')
+        }
       })
     }
     //make sure to debounce your scroll actions; danger of animation lags if running too frequently
