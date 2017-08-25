@@ -15,6 +15,10 @@
     pressed.push(e.key)
     pressed.slice(-secretCode.length -1, pressed.length - secretCode.length)
     //this will go from the back, up the letters
+    //now just need to check if the array contains the code we're looking for
+    if(pressed.join('').includes(secretCode)){
+      console.log('DING DING!')
+    }
     console.log(pressed)
   })
 </script>
