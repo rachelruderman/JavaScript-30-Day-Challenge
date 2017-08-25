@@ -7,8 +7,15 @@
 </head>
 <body>
 <script>
+  const pressed = []
+  const secretCode = 'wesbos'
+
   window.addEventListener('keyup', e => {
     console.log(e.key)
+    pressed.push(e.key)
+    pressed.slice(-secretCode.length -1, pressed.length - secretCode.length)
+    //this will go from the back, up the letters
+    console.log(pressed)
   })
 </script>
 </body>
