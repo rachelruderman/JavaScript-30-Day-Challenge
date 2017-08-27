@@ -30,8 +30,18 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
-  fucntion addItem(e){
-    console.log('Hello')
+  function addItem(e){
+    //to prevent our page from refreshing, we can put e.preventDefault. By default, a form reloads the page and sends the info to an external source *server side). In this case, we're going to be handling it all client-side
+    e.preventDefault()
+    //now we need to take the text in this box and turn it into an object
+    //why can we use 'this'? because 'this' refers to the form tag
+    const text = (this.querySelector('[name = item]')).value
+
+    const item = {
+      text,
+      done: false
+    }
+    console.log(item)
   }
 
 //we don't want to listen to onclick; we want to listen to onsubmit so it also works when the user hits enter, or clicks the button on the form
