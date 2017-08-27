@@ -41,10 +41,27 @@
       text,
       done: false
     }
+    //now we want to take the item and put it into the items array
+    items.push(item)
+    populateList(items, itemsList)
     this.reset()
     //this is the form element, and form elements have a method on them called reset to clear the form
     console.log(item)
   }
+
+  function populateList(plates = [], platesList){
+    //default to empty array so map function will work even if nothing in it
+    platesList.innerHTML =  plates.map((plate, i) =>{
+      //map takes in an array and returns a new array
+      return `
+        <li>
+          <label for=''>${plate.text}</label>
+        </li>
+      `
+    }).join('')
+    //the .join takes the array created by map and turns it into one big string
+  }
+
 
 //we don't want to listen to onclick; we want to listen to onsubmit so it also works when the user hits enter, or clicks the button on the form
   addItems.addEventListener('submit', addItem)
