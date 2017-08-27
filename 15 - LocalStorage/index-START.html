@@ -72,9 +72,29 @@
 
 
 //we don't want to listen to onclick; we want to listen to onsubmit so it also works when the user hits enter, or clicks the button on the form
+  function toggleDone(e){
+    //event delegation: listen for a click on something higher, and then inside of it we check if it's the actual thing that we want (because it could trigger on a few different things)
+
+    //check if the target matches the thing that we're looking for
+    if(!e.target.matches('input')) return //skip this unless it's an input
+    const element = e.target
+    const index = element.dataset.index
+    items[index].done = !items[index].done
+      //if this is true, it's going to be the opposite, which is false
+      //if this is false, it's going to be the opposite, which is true
+    localStorage.setItem('items', JSON.stringify(items))
+    populateList(items, itemsList)
+  }
+
   addItems.addEventListener('submit', addItem)
+  itemsList.addEventListener('click', toggleDone)
+
   populateList(items, itemsList);
 
+
+
+
+//event delegation: think of it as responsible parent with negligent child. Can't tell the child to listen for it; tell the parent to listen for it and pass the info back down to the child
 </script>
 
 
