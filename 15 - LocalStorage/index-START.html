@@ -36,7 +36,7 @@
     e.preventDefault()
     //now we need to take the text in this box and turn it into an object
     //why can we use 'this'? because 'this' refers to the form tag
-    const text = (this.querySelector('[name = item]')).value
+    const text = (this.querySelector('[name=item]')).value
 
     const item = {
       text,
@@ -60,9 +60,8 @@
       //map takes in an array and returns a new array
       return `
         <li>
-        <input type='checkbox' data-index=${i} id='item${i}'
-        ${plate.done ? 'checked' : ''}/>
-        <label for='item${i}'>${plate.text}</label>
+          <input type='checkbox' data-index=${i} id='item${i}' ${plate.done ? 'checked' : ''}/>
+          <label for='item${i}'>${plate.text}</label>
         </li>
       `
       //any existence of the attribute 'checked' will make it checked, so we need to write a ternary operator
@@ -74,6 +73,7 @@
 
 //we don't want to listen to onclick; we want to listen to onsubmit so it also works when the user hits enter, or clicks the button on the form
   addItems.addEventListener('submit', addItem)
+  populateList(items, itemsList);
 
 </script>
 
