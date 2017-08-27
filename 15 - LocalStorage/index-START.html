@@ -49,15 +49,21 @@
     console.log(item)
   }
 
+  //every time we add something, we're calling populateList(), which creates an li with a label inside of it. Each time we're rerendering the whole DOM; right now it's ok, but could be a performance issue in the future. That's where frameworks like React come in handy
+
   function populateList(plates = [], platesList){
     //default to empty array so map function will work even if nothing in it
     platesList.innerHTML =  plates.map((plate, i) =>{
       //map takes in an array and returns a new array
       return `
         <li>
-          <label for=''>${plate.text}</label>
+        <input type='checkbox' data-index=${i} id='item${i}'
+        ${plate.done ? 'checked' : ''}/>
+        <label for='item${i}'>${plate.text}</label>
         </li>
       `
+      //any existence of the attribute 'checked' will make it checked, so we need to write a ternary operator
+      //the id and the for are how we link one to the other
     }).join('')
     //the .join takes the array created by map and turns it into one big string
   }
