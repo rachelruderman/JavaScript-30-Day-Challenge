@@ -28,7 +28,8 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('items')) || [];
+  //will try to get the items from local storage; if it isn't there, will fall back to an empty array
 
   function addItem(e){
     //to prevent our page from refreshing, we can put e.preventDefault. By default, a form reloads the page and sends the info to an external source *server side). In this case, we're going to be handling it all client-side
@@ -44,6 +45,8 @@
     //now we want to take the item and put it into the items array
     items.push(item)
     populateList(items, itemsList)
+    //localStorage looks like an object, but is just a key value store, and you may only use strings.
+    localStorage.setItem('items', JSON.stringify(items))
     this.reset()
     //this is the form element, and form elements have a method on them called reset to clear the form
     console.log(item)
