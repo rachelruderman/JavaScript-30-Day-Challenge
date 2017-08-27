@@ -30,9 +30,15 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
+  fucntion addItem(e){
+    console.log('Hello')
+  }
+
+//we don't want to listen to onclick; we want to listen to onsubmit so it also works when the user hits enter, or clicks the button on the form
+  addItems.addEventListener('submit', addItem)
+
 </script>
 
 
 </body>
 </html>
-
