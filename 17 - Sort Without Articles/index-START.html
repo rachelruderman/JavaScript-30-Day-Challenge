@@ -58,7 +58,12 @@ const sortedBands = bands.sort((a, b) =>
   //we're only using strip in the if statement; we're not modifying the data itself
   strip(a) > strip(b) ? 1 : -1)
 
-console.log(sortedBands)
+//sets the innerHTML to sorted bands
+document.querySelector('#bands').innerHTML = sortedBands
+//we map over each of those
+  .map(band => `<li>${band}</li>`)
+//map returns an array, so we join it. If we didn't join it, we would get commas in between because when you try to set something to innerHTML that is not a string (like an array), the DOM will call toString() on it, and by default it will put a comma inbetween each one 
+  .join('')
 
 </script>
 
