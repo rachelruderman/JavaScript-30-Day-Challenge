@@ -35,4 +35,10 @@ function paintToCanvas(){
   }, 16)
 }
 
+//audio when picture snapped
+function takePhoto(){
+  snap.currentTime = 0
+  snap.play()
+}
+
 getVideo()
