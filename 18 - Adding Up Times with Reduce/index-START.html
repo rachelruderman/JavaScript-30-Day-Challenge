@@ -186,7 +186,6 @@
 //we want to look at anything with a data-time attriute on it
   const timeNodes = Array.from(document.querySelectorAll('[data-time]'))
 //we want to convert this sucker from a nodeList into an array using Array.from
-  console.log(timeNodes)
   const seconds = timeNodes
     .map(node => node.dataset.time)
     .map(timeCode => {
@@ -195,7 +194,17 @@
       return (mins * 60) + secs
       console.log(mins, secs)
     })
-
+    .reduce((total, vidSeconds) => total + vidSeconds)
+    //if map takes in an array and returns an array,
+    //reduce takes in an array and returns anything you want
+    //now we have the total seconds and we need to chop it down into hours, mins, secs
+    let secondsLeft = seconds
+    //after we chunk it into the hours, mod will tell us we have x seconds left
+    const hours = Math.floor(secondsLeft / 3600)
+    secondsLeft = secondsLeft % 3600
+    const mins = Math.floor(secondsLeft / 60)
+    secondsLeft = secondsLeft % 60
+    console.log(hours, mins, secondsLeft)
 </script>
 </body>
 </html>
