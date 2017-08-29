@@ -55,13 +55,11 @@ function strip(bandName){
 
 const sortedBands = bands.sort((a, b) => {
   //By default, the sort() method sorts the values as strings in alphabetical and ascending order.
-
-  if(a > b){
-    return 1
-  } else {
-    return -1
-  }
+  //we're only using strip in the if statement; we're not modifying the data itself
+  return strip(a) > strip(b) ? 1 : -1
 })
+
+console.log(sortedBands)
 
 </script>
 
