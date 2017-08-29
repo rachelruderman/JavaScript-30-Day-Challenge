@@ -25,7 +25,10 @@
   //we want to put it in the dom as we are working with it
   //you do have to run this on a server
   recognition.addEventListener('result', e => {
-    console.log(e)
+    console.log(e.results)
+    const transcript = Array.from(e.results)
+      .map(result => result[0])
+    console.log(transcript)
   })
 
   recognition.start()
