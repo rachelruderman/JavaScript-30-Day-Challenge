@@ -32,6 +32,12 @@
       .join('')
       //we have an array of the pieces spoken, but want to join it in one big string
     console.log(transcript)
+      //now we see the transcript in the DOM
+      p.textContent = transcript
+      if(e.results[0].isFinal){
+        p = document.createElement('p')
+        words.appendChild(p)
+      }
 
   })
 
