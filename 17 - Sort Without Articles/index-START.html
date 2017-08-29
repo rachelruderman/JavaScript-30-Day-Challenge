@@ -53,11 +53,10 @@ function strip(bandName){
   //trim will get rid of any spaces after it
 }
 
-const sortedBands = bands.sort((a, b) => {
+const sortedBands = bands.sort((a, b) =>
   //By default, the sort() method sorts the values as strings in alphabetical and ascending order.
   //we're only using strip in the if statement; we're not modifying the data itself
-  return strip(a) > strip(b) ? 1 : -1
-})
+  strip(a) > strip(b) ? 1 : -1)
 
 console.log(sortedBands)
 
