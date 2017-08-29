@@ -46,6 +46,22 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+//sort gives you two apples in each hand, and it's like, 'which one is bigger?'
+
+function strip(bandName){
+  return bandName.replace(/^(a |the |an )/i, '').trim()
+  //trim will get rid of any spaces after it
+}
+
+const sortedBands = bands.sort((a, b) => {
+  //By default, the sort() method sorts the values as strings in alphabetical and ascending order.
+
+  if(a > b){
+    return 1
+  } else {
+    return -1
+  }
+})
 
 </script>
 
