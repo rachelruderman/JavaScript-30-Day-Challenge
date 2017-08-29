@@ -21,4 +21,18 @@ function getVideo(){
     })
 }
 
+function paintToCanvas(){
+  //set canvas height/width to video  height/width
+  const width = video.videoWidth
+  const height = video.videoHeight
+  console.log(width, height)
+  canvas.width = width
+  canvas.height = height
+//you don't have to return setInterval, but if you do then you'll have access to it later
+  return setInterval(() => {
+    //start at the top left hand corner of the canvas, and then paint the width and the height
+    ctx.drawImage(video, 0, 0, width, height)
+  }, 16)
+}
+
 getVideo()
