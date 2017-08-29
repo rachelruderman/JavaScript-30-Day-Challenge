@@ -10,6 +10,14 @@ function getVideo(){
   //this returns a promise
     .then(localMediaStream => {
       console.log(localMediaStream)
+      //src needs to be a url
+      //this is how we get a live feed
+      video.src = window.URL.createObjectURL(localMediaStream)
+      video.play()
+    })
+    //we need a .catch in case you're not given the access to the webcam
+    .catch(err => {
+      console.error(`OH NO!!!`, err)
     })
 }
 
