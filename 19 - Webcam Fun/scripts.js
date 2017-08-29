@@ -35,10 +35,22 @@ function paintToCanvas(){
   }, 16)
 }
 
-//audio when picture snapped
 function takePhoto(){
+  //audio when picture snapped
   snap.currentTime = 0
   snap.play()
+
+  //take the data out of the canvas
+  const data = canvas.toDataURL('image/jpeg')
+  //this data is an alphabetical representation of the image
+  const link = document.createElement('a')
+  link.href = data
+  link.setAttribute('download', 'handsome')
+  link.textContent = 'Download Image'
+  strip.insertBefore(link, strip.firstChild)
 }
 
 getVideo()
+
+//the video emits this event once it's playing, which will trigger paintToCanvas
+video.addEventListener('canplay', paintToCanvas)
