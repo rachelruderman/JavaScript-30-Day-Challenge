@@ -182,6 +182,17 @@
     </li>
   </ul>
 <script>
+//first thing we want to do is select all of those nodes
+//we want to look at anything with a data-time attriute on it
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]'))
+//we want to convert this sucker from a nodeList into an array using Array.from
+  console.log(timeNodes)
+  const seconds = timeNodes
+    .map(node => node.dataset.time)
+    .map(timeCode => {
+      const [mins, secs] = timeCode.split(':')
+      console.log(mins, secs)
+    })
 </script>
 </body>
 </html>
