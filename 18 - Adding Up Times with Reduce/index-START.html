@@ -190,9 +190,12 @@
   const seconds = timeNodes
     .map(node => node.dataset.time)
     .map(timeCode => {
-      const [mins, secs] = timeCode.split(':')
+      //it will call parseFloat against every item in that array
+      const [mins, secs] = timeCode.split(':').map(parseFloat)
+      return (mins * 60) + secs
       console.log(mins, secs)
     })
+
 </script>
 </body>
 </html>
