@@ -38,7 +38,11 @@
         p = document.createElement('p')
         words.appendChild(p)
       }
-
+    if(transcript.includes('unicorn')){
+      console.log('unicorn emojis')
+      //equally, you could have it look for 'get the weather' and you could run a function that fetches the weather
+      //hands-off application that listens for what you're looking for behind the scenes
+    }
   })
 
   recognition.addEventListener('end', recognition.start)
