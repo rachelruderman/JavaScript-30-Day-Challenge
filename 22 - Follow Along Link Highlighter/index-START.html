@@ -39,6 +39,9 @@
       //'this' is the thing that was triggered
       const linkCoords = this.getBoundingClientRect()
       console.log(linkCoords)
+      highlight.style.width = `${linkCoords.width}px`
+      highlight.style.height = `${linkCoords.height}px`
+      //when you go from one to another, it's dynamically applying the style to it
     }
 
     triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
