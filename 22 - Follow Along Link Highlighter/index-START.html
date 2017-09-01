@@ -32,10 +32,13 @@
     document.body.append(highlight)
 
     function highlightLink(){
-      console.log('Hihglight!!!')
+      console.log('Hihglight!!!', this)
+      //we need to figure out:
+      // - how big is the element we hovered
+      // - where is it on the page
+    }
 
     triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
-    }
   </script>
 </body>
 </html>
