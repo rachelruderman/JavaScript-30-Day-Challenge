@@ -36,6 +36,9 @@
       //we need to figure out:
       // - how big is the element we hovered
       // - where is it on the page
+      //'this' is the thing that was triggered
+      const linkCoords = this.getBoundingClientRect()
+      console.log(linkCoords)
     }
 
     triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
