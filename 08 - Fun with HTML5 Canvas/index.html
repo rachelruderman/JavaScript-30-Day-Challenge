@@ -5,8 +5,12 @@
   <title>HTML5 Canvas</title>
 </head>
 <body>
+  <h1 style="text-align: center; border-bottom: 5px black dashed; user-select: none; font-family: 'Courier New'; margin-top:-2px;">
+    Unleash your creativity!<br/> Click and drag your mouse to begin
+  </h1>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+  const header=document.querySelector('h1')
 //really all we have is this canvas element that we need to draw on
   const canvas = document.querySelector('#draw')
 //we also need context; this is what we draw on. it can either be 2d or 3d (stuff like video games)
@@ -34,6 +38,8 @@
     //remember, ctx is where we do all of the drawing for our canvas
     console.log(e)
     //100% saturation, 50% lightness
+    header.style.color = `hsl(${hue}, 100%, 50%)`
+    header.style['border-bottom'] = `5px dashed hsl(${hue}, 100%, 50%)`
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
     //using the hue variable for both color and line width
     ctx.beginPath()
@@ -60,13 +66,13 @@
     }
   }
 
-  canvas.addEventListener('mousedown' || 'touchstart', (e) => {
+  canvas.addEventListener('mousedown', (e) => {
       isDrawing = true
       //this will put us where we want to be rather than starting at 0, 0
       lastX = e.offsetX
       lastY = e.offsetY
   })
-  canvas.addEventListener('mousemove' || 'touchmove', (draw))
+  canvas.addEventListener('mousemove', (draw))
   canvas.addEventListener('mouseup', () => isDrawing = false)
   canvas.addEventListener('mouseout', () => isDrawing = false)
 </script>
