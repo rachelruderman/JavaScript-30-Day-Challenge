@@ -1,0 +1,22 @@
+{
+  "name": "drumkit",
+  "version": "1.0.0",
+  "description": "![](https://javascript30.com/images/JS3-social-share.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachelruderman/JavaScript-30-Day-Challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachelruderman/JavaScript-30-Day-Challenge/issues"
+  },
+  "homepage": "https://github.com/rachelruderman/JavaScript-30-Day-Challenge#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
