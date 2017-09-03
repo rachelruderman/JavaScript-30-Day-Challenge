@@ -19,5 +19,11 @@ app.get('/drumkit', function (req, res) {
 app.get('/paint', function (req, res) {
   res.sendFile(path.join(__dirname + '/08 - Fun with HTML5 Canvas/index.html'));
 });
+app.get('/css-transitions', function (req, res) {
+  res.sendFile(path.join(__dirname + '/16 - Mouse Move Shadow/index.html'));
+});
+app.get('/flexbox', function (req, res) {
+  res.sendFile(path.join(__dirname + '/05 - Flex Panel Gallery/index-START.html'));
+});
 
 app.listen(process.env.PORT || 8080);
